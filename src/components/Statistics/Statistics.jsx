@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   StatisticsSection,
   StatisticsTitle,
@@ -30,3 +31,11 @@ export const Statistics = ({ title, stats }) => {
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
+  stats: PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }),
+};
